@@ -1,0 +1,28 @@
+%%{init: {'theme': 'neutral'}}%%
+graph LR
+    subgraph "Direct Prompting Information Flow"
+        d_user([User]) --> d_instruction[Instruction/Query]
+        d_instruction --> d_llm[LLM Processing]
+        d_llm --> d_output[Direct Output]
+        d_output --> d_user
+    end
+    
+    subgraph "Indirect Prompting Information Flow"
+        i_user([User]) --> i_context[Context Setting]
+        i_context --> i_reasoning1[First Reasoning Stage]
+        i_reasoning1 --> i_intermediate[Intermediate Conclusions]
+        i_intermediate --> i_reasoning2[Second Reasoning Stage]
+        i_reasoning2 --> i_refine[Output Refinement]
+        i_refine --> i_output[Final Output]
+        i_output --> i_user
+    end
+    
+    classDef userNode fill:#FFF2CC,stroke:#D35400,stroke-width:2px
+    classDef inputNode fill:#D4F1F9,stroke:#05445E,stroke-width:2px
+    classDef processingNode fill:#F9F1F9,stroke:#8E44AD,stroke-width:2px
+    classDef outputNode fill:#D5F5E3,stroke:#1E8449,stroke-width:2px
+    
+    class d_user,i_user userNode
+    class d_instruction,i_context inputNode
+    class d_llm,i_reasoning1,i_intermediate,i_reasoning2,i_refine processingNode
+    class d_output,i_output outputNode

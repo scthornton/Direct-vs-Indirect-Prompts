@@ -1,0 +1,81 @@
+%%{init: {'theme': 'neutral'}}%%
+graph TD
+    subgraph "Prompting Approaches Taxonomy"
+        root[Prompting Approaches]
+        
+        direct[Direct Prompting]
+        indirect[Indirect Prompting]
+        
+        root --> direct
+        root --> indirect
+        
+        %% Direct Prompting Types
+        d1[Instruction-Based]
+        d2[Format-Specific]
+        d3[Constraint-Driven]
+        d4[Parameter-Defined]
+        
+        direct --> d1
+        direct --> d2
+        direct --> d3
+        direct --> d4
+        
+        %% Indirect Prompting Types
+        i1[Chain-of-Thought]
+        i2[Role-Playing]
+        i3[Few-Shot Learning]
+        i4[Socratic Dialogue]
+        i5[Meta-Cognitive]
+        
+        indirect --> i1
+        indirect --> i2
+        indirect --> i3
+        indirect --> i4
+        indirect --> i5
+        
+        %% Examples
+        d1 --> d1e["'Translate the following text to Spanish'"]
+        d2 --> d2e["'Write a response in JSON format'"]
+        d3 --> d3e["'Answer in exactly 50 words'"]
+        d4 --> d4e["'Use a formal tone and academic language'"]
+        
+        i1 --> i1e["'Let's solve this step by step...'"]
+        i2 --> i2e["'You are an expert physicist explaining...'"]
+        i3 --> i3e[Multiple examples showing desired pattern]
+        i4 --> i4e["'What factors should we consider?'"]
+        i5 --> i5e["'First identify what we know and don't know'"]
+    end
+    
+    subgraph "Historical Evolution Timeline"
+        e1[2020: Direct Prompting Dominance]
+        e2[2021: Few-Shot Learning Emergence]
+        e3[2022: Chain-of-Thought Breakthrough]
+        e4[2023: Role-Playing Refinement]
+        e5[2024: Hybrid Approaches]
+        
+        e1 --> e2 --> e3 --> e4 --> e5
+    end
+    
+    subgraph "Performance Comparison by Task Type"
+        c1[Simple Facts]
+        c2[Mathematical Reasoning]
+        c3[Creative Generation]
+        c4[Ethical Analysis]
+        
+        c1 -->|"Direct > Indirect"| cc1[Higher accuracy with direct]
+        c2 -->|"Indirect >> Direct"| cc2[Dramatically better with indirect]
+        c3 -->|"Indirect > Direct"| cc3[More creative/nuanced with indirect]
+        c4 -->|"Indirect >> Direct"| cc4[More comprehensive with indirect]
+    end
+    
+    classDef directNode fill:#D4F1F9,stroke:#05445E,stroke-width:2px
+    classDef indirectNode fill:#F9F1F9,stroke:#8E44AD,stroke-width:2px
+    classDef exampleNode fill:#FFF2CC,stroke:#D35400,stroke-width:1px
+    classDef timelineNode fill:#D5F5E3,stroke:#1E8449,stroke-width:2px
+    classDef comparisonNode fill:#FADBD8,stroke:#943126,stroke-width:2px
+    
+    class direct,d1,d2,d3,d4 directNode
+    class indirect,i1,i2,i3,i4,i5 indirectNode
+    class d1e,d2e,d3e,d4e,i1e,i2e,i3e,i4e,i5e exampleNode
+    class e1,e2,e3,e4,e5 timelineNode
+    class c1,c2,c3,c4,cc1,cc2,cc3,cc4 comparisonNode
